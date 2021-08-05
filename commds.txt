@@ -1,0 +1,5 @@
+python manage.py makemigrations
+python manage.py migrate
+python manage.py createsuperuser
+
+CREAMOS UN FORMULARIO DENTRO DE QUIZ con forms.py
