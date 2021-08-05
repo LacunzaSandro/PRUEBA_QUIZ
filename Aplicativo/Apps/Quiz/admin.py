@@ -6,6 +6,7 @@ from django.db.models.base import Model
 
 # Register your models here.
 from .models import Pregunta, ElegirRespuesta, PreguntasRespondidas
+from .forms import ElegirInLineFormSet
 
 # mejoramos como se ve en sección admin
 
@@ -15,6 +16,7 @@ class ElegirRespuestaInline(admin.TabularInline):
     can_delete = False
     max_num = ElegirRespuesta.MAX_RESPONSE
     min_num = ElegirRespuesta.MAX_RESPONSE
+    formset = ElegirInLineFormSet
 
 
 class PreguntaAdmin(admin.ModelAdmin):
