@@ -7,7 +7,7 @@ from django.forms import fields
 
 from .models import Pregunta, ElegirRespuesta, PreguntasRespondidas
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import get_user_model
+from django.contrib.auth import authenticate, get_user_model
 
 User = get_user_model()
 
@@ -29,6 +29,24 @@ class ElegirInLineFormSet(forms.BaseInlineFormSet):
             assert respuesta_correcta == Pregunta.RESPUESTAS_PERMITIDAS
         except AssertionError:
             raise forms.ValidationError('Una sola respuesta es permitida')
+
+class UsuarioLoginForm(forms.Form):
+    username = forms.CharField()
+    password = forms.CharField(widget=forms.PasswordInput)
+
+    def clean(self, *args, **kwargs):
+        username = self.cleaned_data.get('username')
+        password = self.cleaned_data.get('password')
+
+        if username and password:
+            user = authenticate(username=username, password=password)
+            if not user:
+                raise forms.ValidationError("Este usuario no existe")
+            if not user.check_password(password):
+                raise forms.ValidationError("Password Incorrecta")
+            if not user.is_active:
+                raise forms.ValidationError("Este usuario no esta actívo")
+        return super(UsuarioLoginForm, self).clean(*args, **kwargs)
 
 
 class RegisterForm(UserCreationForm):

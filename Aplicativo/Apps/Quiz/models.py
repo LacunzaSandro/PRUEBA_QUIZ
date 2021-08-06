@@ -25,7 +25,7 @@ class ElegirRespuesta(models.Model):
         return self.texto
 
 
-class Usuario(models.Model):
+class QuizUsuario(models.Model):
     # Usuario que esta realizando el Quiz
     usuario = models.OneToOneField(User, on_delete=models.CASCADE)
     puntaje_total = models.DecimalField(
@@ -33,7 +33,7 @@ class Usuario(models.Model):
 
 
 class PreguntasRespondidas(models.Model):
-    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(QuizUsuario, on_delete=models.CASCADE)
     pregunta = models.ForeignKey(Pregunta, on_delete=models.CASCADE)
     respuesta = models.ForeignKey(
         ElegirRespuesta, on_delete=models.CASCADE, related_name='intentos')

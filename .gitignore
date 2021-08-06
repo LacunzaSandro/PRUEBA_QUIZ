@@ -130,3 +130,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+Aplicativo/Aplicativo/Settings/local.py
+Aplicativo/Aplicativo/Settings/local.py

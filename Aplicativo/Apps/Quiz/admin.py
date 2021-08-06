@@ -5,7 +5,7 @@ from django.db.models.base import Model
 
 
 # Register your models here.
-from .models import Pregunta, ElegirRespuesta, PreguntasRespondidas
+from .models import Pregunta, ElegirRespuesta, PreguntasRespondidas,QuizUsuario
 from .forms import ElegirInLineFormSet
 
 # mejoramos como se ve en sección admin
@@ -37,3 +37,4 @@ class PreguntasRespondidasAdmin(admin.ModelAdmin):
 admin.site.register(PreguntasRespondidas)
 admin.site.register(Pregunta, PreguntaAdmin)
 admin.site.register(ElegirRespuesta)
+admin.site.register(QuizUsuario)
