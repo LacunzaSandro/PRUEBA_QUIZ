@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+{% if pregunta is None %}
+<div class="container">
+    <div class="jumbotron my-4">
+        <h1>Haz respondido a todas las preguntas existentes!</h1>
+        <a href="{% url 'score' %}">Ver Aquí</a>
+    </div>
+
+</div>
+{% else %}
+<div class="container">
+    <div class="jumbotron my-4">
+        <h3>{{pregunta.texto}}</h3>
+        <form class="form" action="" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="pregunta_pk" value="{{pregunta.pk}}">
+            {% for opciones in pregunta.opciones.all %}
+            <div class="form-check mx-4">
+                <input type="radio" class="form-check-input" name="respuesta_pk" value="{{opciones.pk}}"
+                    id="choice-{{forloop.counter}}">
+
+                <label for="choice-{{forloop.counter}}" class="form-check-label">
+                    {{opciones.texto}}
+                </label>
+            </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-success">Enviar</button>
+        </form>
+    </div>
+</div>
+{% endif %}
+
+{% endblock %}
