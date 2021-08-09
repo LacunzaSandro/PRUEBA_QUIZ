@@ -1,4 +1,6 @@
 from django.urls import path
+from django.contrib.auth import views as auth_views
+from . import views
 from .views import (
     inicio,
     register,
@@ -16,6 +18,7 @@ urlpatterns = [
     path('register/', register, name='register'),
     path('login/', ingresar, name='login'),
     path('logout/', salir, name='logout'),
+
 
     path('playquiz/', playQuiz, name='playquiz'),
     path('resultado/<int:pregunta_respondida_pk>/',

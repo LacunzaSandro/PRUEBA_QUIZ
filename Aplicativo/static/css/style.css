@@ -106,34 +106,36 @@
     background-color: white;
 }
 
-#register-form {
+#style-form {
     display: flex;
     flex-wrap:wrap;
+     justify-content: center;
 }
-#register-form > .errorlist {
+#style-form > .errorlist {
     list-style: none;
     color: rgb(190, 63, 63);
     font-size: 13px;
 }
-#register-form > p {
+#style-form > p {
     width: 500px !important;
 }
-#register-form > p > input {
-width: 380px;
-border: 0;
-  border-bottom: 2px solid #D3D8DC;
-  outline: 0;
-  background: #fff;
-  padding: 20px 0 4px;
-  color: #777B7E;
+#style-form > p > input {
+
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid #D3D8DC;
+    outline: 0;
+    background: #fff;
+    padding: 20px 0 4px;
+    color: #777B7E;
 }
-#register-form > p > input:focus {
+#style-form > p > input:focus {
     border-color: #7A9D96;
     color: #2C3238;
   }
 
-  #register-form > button#submit {
-    margin-top: 15px;
+#style-form > button#submit {
+    margin: 15px 0px;
     width: 100%;
     padding: 20px 0;
     text-align: center;
@@ -143,8 +145,16 @@ border: 0;
     border-radius: 4px;
     opacity: 1;
     transition: .35s linear;
-  }
+}
   
-  #register-form > button#submit:hover {
+#style-form > button#submit:hover {
     opacity: .6;
-  }
+}
+#style-form > div > a {
+    color: rgb(36, 34, 34);
+    text-decoration: none;
+}
+#style-form > div > a:hover {
+    color: rgb(85, 93, 122);
+    text-decoration: none;
+}

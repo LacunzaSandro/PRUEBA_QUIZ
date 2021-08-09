@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>{% block titulo %} {% endblock %}</title>
+    <title>{{ titulo }}</title>
     <!-- Bootstrap CSS -->
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -61,9 +61,21 @@
                             <li class="nav-item">
                                 <a class="nav-link text-decoration-hover" href="#">Aniversario</a>
                             </li>
+
+
                             <li class="nav-item ">
                                 <a class="nav-link text-decoration-hover" href="{% url 'score' %}">Posiciones</a>
                             </li>
+                            {% if request.user.is_authenticated %}
+                            <li class="nav-item">
+                                <a class="nav-link text-decoration-hover" href="{% url 'playquiz' %}">Jugar</a>
+                            </li>
+                            <li class="nav-item d-none d-sm-none d-md-none d-lg-block">
+                                <a href="{% url 'logout' %}">
+                                    <button class="button-login">Salir</button>
+                                </a>
+                            </li>
+                            {% else %}
                             <li class="nav-item d-block d-sm-block d-md-block d-lg-none">
                                 <a href="{% url 'login' %}">
                                     <a class="nav-link text-decoration-hover" href="{% url 'login' %}">Login</a>
@@ -74,6 +86,8 @@
                                     <button class="button-login">Ingesar</button>
                                 </a>
                             </li>
+                            {% endif %}
+
                         </ul>
                     </div>
                 </nav>
