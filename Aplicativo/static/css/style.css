@@ -1,0 +1,150 @@
+
+/*--color de fondo del navbar--*/
+.navbar {
+    background-color: #85BEDB;
+    min-height: 100px;
+}
+/*--boton de login en el navbar --*/
+.button-login {
+    background-color: #587e92;
+    color:whitesmoke;
+    font-weight: bold;
+    border: 1px solid whitesmoke;
+    border-radius: 15px;
+    padding: 8px 15px;
+    margin:0px 30px;
+}
+.button-login:hover {
+    background-color: #8ac2e0;
+    border-color: #587e92;
+    color:white;
+}
+/*--efectos y color de los items del navbar--*/
+#nav a.text-decoration-hover {
+    font-weight: bold;
+    color: rgb(65, 64, 64);
+    margin-left: 30px;
+    text-decoration: none;
+
+}
+/* --- Header -- */
+.container-fluid {
+    padding: 0px !important;
+    margin: 0px !important;
+}
+ .header {
+    position: relative;
+    z-index: 100;
+ }
+ /* banner */
+ .banner {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    min-height: calc(100vh - 100px); 
+    background-image: url('../img/banner.png'); 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    z-index: 99;
+} 
+ .banner::before {
+    content: '';
+    width: 100%;
+    min-height: calc(100vh - 100px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(rgba(255,255,255, .1), rgba(34,40,49, 1));
+
+} 
+.text-banner {
+    min-height: calc(100vh - 100px);
+    color: whitesmoke;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+}
+/* boton del banner */
+.btn-yo {
+    background-color: rgb(137, 241, 245);
+    text-shadow:  1px 1px #444;
+}
+/* cambiamos de color al fondo de los mensajes de success */
+
+@media (max-width:990px) {
+    .navbar {
+        width: 100vw !important;
+    }
+    .show, .collapsing {
+        z-index: 200;
+        background-color: #85BEDB !important;
+        margin-top: 20px !important;
+    }
+    #nav a.text-decoration-hover:hover {
+        color: rgb(247, 240, 240);
+    }
+}
+@media (min-width: 990px) {
+    #nav a.text-decoration-hover:hover {
+        padding-bottom: 5px;
+        border-bottom: 2px solid rgb(238, 236, 236);
+    
+    }
+}
+
+
+/* FORM */
+.register {
+    min-height: calc(100vh - 100px);
+    background-color: rgb(221, 226, 233);
+}
+.form-wrapper {
+    width: 500px;
+    padding: 35px;
+    background-color: white;
+}
+
+#register-form {
+    display: flex;
+    flex-wrap:wrap;
+}
+#register-form > .errorlist {
+    list-style: none;
+    color: rgb(190, 63, 63);
+    font-size: 13px;
+}
+#register-form > p {
+    width: 500px !important;
+}
+#register-form > p > input {
+width: 380px;
+border: 0;
+  border-bottom: 2px solid #D3D8DC;
+  outline: 0;
+  background: #fff;
+  padding: 20px 0 4px;
+  color: #777B7E;
+}
+#register-form > p > input:focus {
+    border-color: #7A9D96;
+    color: #2C3238;
+  }
+
+  #register-form > button#submit {
+    margin-top: 15px;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+    background: #95c9eb;
+    color: #fff;
+    border: 0;
+    border-radius: 4px;
+    opacity: 1;
+    transition: .35s linear;
+  }
+  
+  #register-form > button#submit:hover {
+    opacity: .6;
+  }

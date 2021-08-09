@@ -30,6 +30,7 @@ class ElegirInLineFormSet(forms.BaseInlineFormSet):
         except AssertionError:
             raise forms.ValidationError('Una sola respuesta es permitida')
 
+
 class UsuarioLoginForm(forms.Form):
     username = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput)
@@ -50,9 +51,11 @@ class UsuarioLoginForm(forms.Form):
 
 
 class RegisterForm(UserCreationForm):
-    email = forms.EmailField(required=True)
-    first_name = forms.CharField(required=True)
-    last_name = forms.CharField(required=True)
+    email = forms.EmailField(label='Correo: ', required=True)
+    first_name = forms.CharField(label='Nombre: ', required=True)
+    last_name = forms.CharField(label='Apellido: ', required=True)
+    password1 = forms.CharField(label='Contraseña: ', required=True)
+    password2 = forms.CharField(label='Confirmar Contraseña: ', required=True)
 
     class Meta:
         model = User
@@ -64,3 +67,5 @@ class RegisterForm(UserCreationForm):
             'password1',
             'password2'
         ]
+
+        help_texts = {k: "" for k in fields}

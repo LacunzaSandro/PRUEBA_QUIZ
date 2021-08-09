@@ -1,7 +1,17 @@
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">
-        Enviar
-    </button>
-</form>
+{% extends 'base.html' %}
+
+{% block contenido %}
+<div class="d-flex register justify-content-center align-items-center">
+    <div class="form-wrapper rounded">
+        <form id="register-form" action="" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button id="submit" type="submit">
+                Enviar
+            </button>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

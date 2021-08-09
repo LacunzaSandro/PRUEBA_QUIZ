@@ -1,1 +1,25 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block contenido%}
+<div class="container-fluid">
+    <!-- <img src="{% static 'img/banner.png' %}" alt="banner" class="banner img-fluid"> -->
+    <div class="banner">
+
+        <div class="container">
+            <div class="text-banner d-flex justify-content-center align-items-center">
+                <div class="row justify-content-center">
+                    <div class="col-sm-8">
+                        <h1 style="margin-bottom: 20px; color: black;" class="animated rotateInDownLeft delay-15s">Quiz
+                            Aniversario
+                        </h1>
+                        <p class="animated slideInLeft  delay-15s">En conmemoración de los 70 años de la
+                            provincialización del Chaco. ¡Juga con nosotros! </p>
+                        <a href="{% url 'register' %}" class="btn btn-yo animated slideInUp  delay-15s float-right">
+                            REGISTRARSE</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
