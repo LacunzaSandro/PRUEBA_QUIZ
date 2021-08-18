@@ -68,6 +68,11 @@ class QuizUsuario(models.Model):
         self.puntaje_total = puntaje_actualizado
         self.save()
 
+    def get_incomplete_question(self):
+        preguntas_sin_responder = PreguntasRespondidas.objects.filter(
+            quizUser=self, respuesta_id__isnull=True)
+        return preguntas_sin_responder
+
 
 class PreguntasRespondidas(models.Model):
     quizUser = models.ForeignKey(

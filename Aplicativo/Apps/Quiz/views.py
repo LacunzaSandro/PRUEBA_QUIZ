@@ -100,10 +100,17 @@ def playQuiz(request):
             raise Http404
 
         QuizUser.validate_intent(pregunta_respondida, opcion_selecionada)
-
         return redirect('resultado', pregunta_respondida.pk)
 
     else:
+        # En lo siguiente verificamos que no exista un intento sin
+        # haberse seleccionado una respuesta, por ejemplo en la situación
+        # en que un usuario cierra la aplicación sin responder
+        # traemos todos los registros de preguntas en null
+        questions = QuizUser.get_incomplete_question()
+        if questions:  # verificamos que existan
+            questions.delete()  # lo eliminamos
+
         pregunta = QuizUser.get_new_question()
         if pregunta is not None:
             QuizUser.create_intent(pregunta)

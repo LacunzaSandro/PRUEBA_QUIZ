@@ -37,10 +37,6 @@
 </head>
 
 <body>
-
-
-
-
     <header class="header">
         <div class="bg-dark">
             <div class="container-fluid px-5">
@@ -66,6 +62,7 @@
                             <li class="nav-item ">
                                 <a class="nav-link text-decoration-hover" href="{% url 'score' %}">Posiciones</a>
                             </li>
+                            <!-- verificamos si esta autenticado -->
                             {% if request.user.is_authenticated %}
                             <li class="nav-item">
                                 <a class="nav-link text-decoration-hover" href="{% url 'playquiz' %}">Jugar</a>
@@ -93,7 +90,7 @@
                 </nav>
             </div>
         </div>
-
+        <!-- mostramos cada unos de los mensajes existentes -->
         {% for message in messages %}
         <div class="container-fluid p-0">
             <div class="alert {{ message.tags }} alert-dismissible" role="alert">
